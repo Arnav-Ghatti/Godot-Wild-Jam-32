@@ -1,19 +1,19 @@
 extends Area2D
 
-export var speed = 350
-export var steer_force = 50.0
+export (int) var speed
+export (float) var steer_force
 
 var velocity = Vector2.ZERO
 var acceleration = Vector2.ZERO
 var target = null
 
-func start(_position, _direction, _target=null):
+func start(_position, _direction, _target=null) -> void:
 	position = _position
 	rotation = _direction.angle()
 	velocity = _direction * speed
 	target = _target
 
-func seek():
+func seek() -> float:
 	var desired = (target.position - position).normalized() * speed
 	var steer = (desired - velocity).normalized() * steer_force
 	return steer
@@ -26,3 +26,9 @@ func _process(delta: float) -> void:
 		rotation = velocity.angle()
 	
 	position += velocity * delta
+
+
+func _on_Missile_area_entered(area: Area2D) -> void:
+	if area.is_in_group("missile"):
+		area.queue_free()
+		queue_free()

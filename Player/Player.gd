@@ -16,3 +16,7 @@ func _go_to_mouse() -> void:
 		var direction = get_global_mouse_position() - position
 		var normalized_direction = direction.normalized()
 		move_and_slide(normalized_direction * move_speed)
+
+func _on_MissileDetector_area_entered(area: Area2D) -> void:
+	if area.is_in_group("missile"):
+		get_tree().reload_current_scene()

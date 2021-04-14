@@ -8,7 +8,26 @@
 script = ExtResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 256, 137 )
+position = Vector2( 460.5, 270 )
 
-[node name="MissileLauncher" parent="." instance=ExtResource( 2 )]
-[connection signal="start" from="MissileLauncher" to="." method="_on_Missile_Launch"]
+[node name="MissileLaunchers" type="Node2D" parent="."]
+
+[node name="Right" parent="MissileLaunchers" instance=ExtResource( 2 )]
+position = Vector2( -100, 270 )
+
+[node name="Left" parent="MissileLaunchers" instance=ExtResource( 2 )]
+position = Vector2( 1021, 270 )
+
+[node name="Up" parent="MissileLaunchers" instance=ExtResource( 2 )]
+position = Vector2( 460.5, -100 )
+
+[node name="Down" parent="MissileLaunchers" instance=ExtResource( 2 )]
+position = Vector2( 460.5, 612 )
+
+[node name="LaunchTimer" type="Timer" parent="."]
+autostart = true
+[connection signal="start" from="MissileLaunchers/Right" to="." method="_on_Right_start"]
+[connection signal="start" from="MissileLaunchers/Left" to="." method="_on_Left_start"]
+[connection signal="start" from="MissileLaunchers/Up" to="." method="_on_Up_start"]
+[connection signal="start" from="MissileLaunchers/Down" to="." method="_on_Down_start"]
+[connection signal="timeout" from="LaunchTimer" to="." method="_on_LaunchTimer_timeout"]

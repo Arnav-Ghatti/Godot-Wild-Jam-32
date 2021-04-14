@@ -20,13 +20,14 @@ config/icon="res://icon.png"
 
 [display]
 
-window/size/width=512
-window/size/height=300
-window/size/test_width=768
-window/size/test_height=450
+window/size/width=921
+window/size/height=540
+window/size/test_width=1024
+window/size/test_height=600
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
 [rendering]
 
+environment/default_clear_color=Color( 0.0352941, 0, 0.109804, 1 )
 environment/default_environment="res://default_env.tres"
