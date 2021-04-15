@@ -16,6 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Godot Game Jam 32"
+run/main_scene="res://MainMenu.tscn"
 config/icon="res://icon.png"
 
 [display]
@@ -24,6 +25,7 @@ window/size/width=921
 window/size/height=540
 window/size/test_width=1024
 window/size/test_height=600
+mouse_cursor/custom_image="res://UI/Cursor.png"
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 

@@ -2,10 +2,14 @@ extends KinematicBody2D
 
 export(int) var move_speed = 170
 export(int) var stop_pos = 16
+var not_moving = false
 
 func _process(delta: float) -> void:
 	_look_at_mouse()
 	_go_to_mouse()
+	
+	if position.distance_to(get_global_mouse_position()) <= stop_pos:
+		not_moving = true
 
 func _look_at_mouse() -> void:
 	look_at(get_global_mouse_position())
@@ -13,6 +17,7 @@ func _look_at_mouse() -> void:
 
 func _go_to_mouse() -> void:
 	if position.distance_to(get_global_mouse_position()) > stop_pos:
+		not_moving = false
 		var direction = get_global_mouse_position() - position
 		var normalized_direction = direction.normalized()
 		move_and_slide(normalized_direction * move_speed)
