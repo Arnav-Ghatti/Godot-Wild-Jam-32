@@ -14,4 +14,4 @@ The following are the tools used to make the game
 * The art and SFX were imported from Kenney.
 * The music was made in FL Studio.
 
-** If You like the game then don't forget to comment on my Itch.io page. Thank you for playing my Game 😊 **
+**If You like the game then don't forget to comment on my Itch.io page. Thank you for playing my Game 😊**
