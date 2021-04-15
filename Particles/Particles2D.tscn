@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Particles/StarField.tres" type="Material" id=1]
+[ext_resource path="res://Particles/star.svg" type="Texture" id=2]
+
+[node name="Particles2D" type="Particles2D"]
+position = Vector2( 460, 270 )
+amount = 10
+lifetime = 6.0
+preprocess = 6.0
+visibility_rect = Rect2( -460, -270, 921, 540 )
+process_material = ExtResource( 1 )
+texture = ExtResource( 2 )

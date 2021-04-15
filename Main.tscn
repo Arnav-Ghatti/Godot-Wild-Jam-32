@@ -1,11 +1,22 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Missile Launcher/MissileLauncher.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Particles/StarFieldBackground.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Main.gd" type="Script" id=4]
+[ext_resource path="res://Referee/Referee.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Environment" id=1]
+background_mode = 4
+glow_enabled = true
+glow_intensity = 0.5
+glow_bloom = 0.1
+glow_blend_mode = 0
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 4 )
+
+[node name="StarFieldBackground" parent="." instance=ExtResource( 3 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 460.5, 270 )
@@ -26,6 +37,23 @@ position = Vector2( 460.5, 612 )
 
 [node name="LaunchTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="Referees" type="Node2D" parent="."]
+
+[node name="Referee" parent="Referees" instance=ExtResource( 5 )]
+position = Vector2( 120, 120 )
+
+[node name="Referee2" parent="Referees" instance=ExtResource( 5 )]
+position = Vector2( 120, 420 )
+
+[node name="Referee3" parent="Referees" instance=ExtResource( 5 )]
+position = Vector2( 801, 420 )
+
+[node name="Referee4" parent="Referees" instance=ExtResource( 5 )]
+position = Vector2( 801, 120 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
 [connection signal="start" from="MissileLaunchers/Right" to="." method="_on_Right_start"]
 [connection signal="start" from="MissileLaunchers/Left" to="." method="_on_Left_start"]
 [connection signal="start" from="MissileLaunchers/Up" to="." method="_on_Up_start"]
