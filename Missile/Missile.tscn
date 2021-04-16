@@ -46,6 +46,12 @@ __meta__ = {
 speed = 200
 steer_force = 15.0
 
+[node name="Explosion" parent="." instance=ExtResource( 6 )]
+z_index = 5
+emitting = false
+amount = 45
+one_shot = true
+
 [node name="Trail" parent="." instance=ExtResource( 4 )]
 width = 10.0
 default_color = Color( 0.475806, 0.800781, 0.118866, 0.862745 )
@@ -60,9 +66,6 @@ local_coords = false
 process_material = SubResource( 5 )
 texture = ExtResource( 5 )
 
-[node name="Explosion" parent="." instance=ExtResource( 6 )]
-emitting = false
-
 [node name="Sprite" type="Sprite" parent="."]
 rotation = -1.5708
 scale = Vector2( 0.25, 0.25 )
@@ -76,4 +79,9 @@ polygon = PoolVector2Array( 9.09739, 2.26442, 9.09739, -2.24576, -6.38198, -6.31
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Collision"]
 polygon = PoolVector2Array( 9.09739, 2.26442, 9.09739, -2.24576, -6.38198, -6.31048, -9.2774, -1.96735, -9.2774, 2.26442, -6.49334, 6.21778 )
+
+[node name="ExplosionRemove" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
 [connection signal="area_entered" from="." to="." method="_on_Missile_area_entered"]
+[connection signal="timeout" from="ExplosionRemove" to="." method="_on_ExplosionRemove_timeout"]

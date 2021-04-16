@@ -13,6 +13,9 @@ margin_bottom = 40.0
 custom_fonts/font = SubResource( 1 )
 text = "0:0:0"
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ms" type="Timer" parent="."]
 wait_time = 0.1

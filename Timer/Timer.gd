@@ -6,7 +6,20 @@ var mins = 0
 
 signal next_wave
 
+func _ready() -> void:
+	if Global.wave != 1:
+		ms = Global.ms
+		sec = Global.sec
+		mins = Global.mins
+
 func _process(delta: float) -> void:
+	Global.ms = ms
+	Global.sec = sec
+	Global.mins = mins
+	
+	if Global.player == null:
+		$ms.stop()
+	
 	if ms > 9:
 		ms = 0
 		sec += 1
