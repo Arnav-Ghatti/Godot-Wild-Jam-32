@@ -6,23 +6,23 @@
 [ext_resource path="res://Trail/Trail.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Particles/TrailParticles.png" type="Texture" id=5]
 
-[sub_resource type="Gradient" id=4]
-offsets = PoolRealArray( 0, 0.372694, 0.719557, 1 )
-colors = PoolColorArray( 0.1, 1, 0.145, 1, 0.617188, 1, 0, 1, 0.879863, 0.99, 0.1089, 1, 0.136719, 0.136719, 0.136719, 1 )
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.384279, 0.719557, 1 )
+colors = PoolColorArray( 1, 0.938477, 0.015625, 1, 1, 0.492188, 0, 1, 0.99, 0.274106, 0.1089, 1, 0.136719, 0.136719, 0.136719, 1 )
 
-[sub_resource type="GradientTexture" id=5]
-gradient = SubResource( 4 )
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
 
-[sub_resource type="Curve" id=2]
+[sub_resource type="Curve" id=3]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.315987 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=3]
-curve = SubResource( 2 )
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
 
-[sub_resource type="ParticlesMaterial" id=1]
+[sub_resource type="ParticlesMaterial" id=5]
 flag_disable_z = true
 direction = Vector3( 0, 1, 0 )
-spread = 20.0
+spread = 25.0
 flatness = 1.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 80.0
@@ -31,23 +31,25 @@ orbit_velocity_random = 0.0
 linear_accel = 20.0
 angle = 90.0
 angle_random = 1.0
-scale = 0.3
-scale_curve = SubResource( 3 )
-color_ramp = SubResource( 5 )
+scale = 0.4
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
 move_speed = 210
 
 [node name="Trail" parent="." instance=ExtResource( 4 )]
+width = 14.5
 default_color = Color( 0.937255, 0.2, 0.2, 0.588235 )
-length = 17
+length = 15
 
 [node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( -0.353546, 10.2531 )
 amount = 15
 lifetime = 0.3
 local_coords = false
-process_material = SubResource( 1 )
+process_material = SubResource( 5 )
 texture = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="."]

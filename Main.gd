@@ -5,6 +5,20 @@ onready var left_launcher = get_node("MissileLaunchers/Left")
 onready var up_launcher = get_node("MissileLaunchers/Up")
 onready var down_launcher = get_node("MissileLaunchers/Down")
 
+var wave_times = [
+	"0:25:0",
+	"0:35:0",
+	"0:50:0",
+	"1:00:0",
+	"1:10:0",
+	"1:15:0",
+	"1:30:0"
+]
+
+func _ready() -> void:
+	Global.wave_end_text = wave_times[Global.wave_index]
+	$UI/Wave.text = "Wave: " + str(Global.wave)
+
 func launch_missile(bullet, _position, _direction) -> void:
 	var m = bullet.instance()
 	call_deferred("add_child", m)
@@ -32,3 +46,7 @@ func _on_Up_start(bullet, _position, _direction) -> void:
 
 func _on_Down_start(bullet, _position, _direction) -> void:
 	launch_missile(bullet, _position, _direction)
+
+func _on_Timer_next_wave() -> void:
+	Global.next_wave()
+	get_tree().reload_current_scene()

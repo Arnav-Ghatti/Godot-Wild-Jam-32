@@ -5,11 +5,11 @@
 [ext_resource path="res://UI/UITheme.tres" type="Theme" id=3]
 [ext_resource path="res://MainMenu.gd" type="Script" id=4]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 60
 font_data = ExtResource( 1 )
 
-[sub_resource type="Environment" id=1]
+[sub_resource type="Environment" id=2]
 background_mode = 4
 glow_enabled = true
 glow_intensity = 0.5
@@ -32,11 +32,11 @@ __meta__ = {
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -285.0
-margin_top = 60.0
+margin_top = 48.0
 margin_right = 285.0
-margin_bottom = 128.0
+margin_bottom = 116.0
 rect_pivot_offset = Vector2( 285, 34 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Missile Dodge"
 align = 1
 valign = 1
@@ -44,12 +44,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Name" type="LineEdit" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -150.0
+margin_top = 159.0
+margin_right = 150.0
+margin_bottom = 194.0
+rect_pivot_offset = Vector2( 150, 17 )
+theme = ExtResource( 3 )
+align = 1
+placeholder_text = "Name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="PostProcessing" type="Node2D" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="PostProcessing"]
-environment = SubResource( 1 )
+environment = SubResource( 2 )
 
-[node name="StarFieldBackground" type="ParallaxBackground" parent="PostProcessing" instance=ExtResource( 2 )]
+[node name="StarFieldBackground" parent="PostProcessing" instance=ExtResource( 2 )]
 
 [node name="Play" type="Button" parent="."]
 anchor_left = 0.5
@@ -76,7 +91,7 @@ anchor_bottom = 0.5
 margin_left = -125.0
 margin_top = 67.0
 margin_right = 125.0
-margin_bottom = 105.0
+margin_bottom = 113.0
 rect_pivot_offset = Vector2( 125, 19 )
 theme = ExtResource( 3 )
 custom_colors/font_color = Color( 0.0392157, 0, 0.12549, 1 )
@@ -95,6 +110,9 @@ rect_pivot_offset = Vector2( 125, 19 )
 theme = ExtResource( 3 )
 custom_colors/font_color = Color( 0.0392157, 0, 0.12549, 1 )
 text = "EXIT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="MadeBy" type="Label" parent="."]
 margin_left = 23.0

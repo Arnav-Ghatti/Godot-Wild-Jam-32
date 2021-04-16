@@ -19,6 +19,10 @@ config/name="Godot Game Jam 32"
 run/main_scene="res://MainMenu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://Global.gd"
+
 [display]
 
 window/size/width=921
@@ -32,4 +36,3 @@ window/stretch/aspect="keep"
 [rendering]
 
 environment/default_clear_color=Color( 0.0352941, 0, 0.109804, 1 )
-environment/default_environment="res://default_env.tres"

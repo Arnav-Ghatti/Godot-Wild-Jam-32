@@ -7,6 +7,8 @@ var velocity = Vector2.ZERO
 var acceleration = Vector2.ZERO
 var target = null
 
+var explosion = preload("res://Particles/Explosion.tscn")
+
 func start(_position, _direction, _target=null) -> void:
 	position = _position
 	rotation = _direction.angle()
@@ -27,8 +29,6 @@ func _process(delta: float) -> void:
 	
 	position += velocity * delta
 
-
 func _on_Missile_area_entered(area: Area2D) -> void:
 	if area.is_in_group("missile"):
 		area.queue_free()
-		queue_free()

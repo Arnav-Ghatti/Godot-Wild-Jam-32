@@ -1,17 +1,18 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Missile/missile.png" type="Texture" id=1]
 [ext_resource path="res://Missile/Missile.gd" type="Script" id=2]
 [ext_resource path="res://Missile/missile_n.png" type="Texture" id=3]
 [ext_resource path="res://Trail/Trail.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Particles/TrailParticles.png" type="Texture" id=5]
+[ext_resource path="res://Particles/Explosion.tscn" type="PackedScene" id=6]
 
-[sub_resource type="Gradient" id=5]
-offsets = PoolRealArray( 0, 0.349345, 0.668122, 1 )
-colors = PoolColorArray( 1, 0.845581, 0.0117188, 1, 1, 0.46875, 0, 1, 0.552171, 0.281198, 0.0421036, 1, 0.0859375, 0.0859375, 0.0859375, 1 )
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.379913, 0.694323, 1 )
+colors = PoolColorArray( 0.922791, 1, 0.0117188, 1, 0.710938, 1, 0, 1, 0.345455, 0.929688, 0.079895, 1, 0.0859375, 0.0859375, 0.0859375, 1 )
 
 [sub_resource type="GradientTexture" id=2]
-gradient = SubResource( 5 )
+gradient = SubResource( 1 )
 
 [sub_resource type="Curve" id=3]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.407043 ), 0.0, 0.0, 0, 0 ]
@@ -19,7 +20,7 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.407043 ), 0.0, 0.0, 0, 
 [sub_resource type="CurveTexture" id=4]
 curve = SubResource( 3 )
 
-[sub_resource type="ParticlesMaterial" id=1]
+[sub_resource type="ParticlesMaterial" id=5]
 flag_disable_z = true
 direction = Vector3( 0, 1, 0 )
 spread = 20.0
@@ -28,6 +29,8 @@ initial_velocity = 80.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 linear_accel = 20.0
+angle = 90.0
+angle_random = 1.0
 scale = 0.3
 scale_curve = SubResource( 4 )
 color_ramp = SubResource( 2 )
@@ -49,13 +52,16 @@ default_color = Color( 0.475806, 0.800781, 0.118866, 0.862745 )
 length = 10
 
 [node name="Particles2D" type="Particles2D" parent="."]
-position = Vector2( 0.113625, -1.11362 )
+position = Vector2( -8.68626, 0 )
 rotation = 1.5708
 amount = 15
 lifetime = 0.2
 local_coords = false
-process_material = SubResource( 1 )
+process_material = SubResource( 5 )
 texture = ExtResource( 5 )
+
+[node name="Explosion" parent="." instance=ExtResource( 6 )]
+emitting = false
 
 [node name="Sprite" type="Sprite" parent="."]
 rotation = -1.5708
