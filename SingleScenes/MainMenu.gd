@@ -2,6 +2,8 @@ extends Control
 
 func _ready() -> void:
 	MusicController.play_song()
+	Global.wave = 1
+	Global.wave_index = 0
 	$Fade/FadeAnim.play("FadeIn")
 	yield($Fade/FadeAnim, "animation_finished")
 	$Fade/FadeInOut.hide()
