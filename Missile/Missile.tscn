@@ -38,6 +38,7 @@ color_ramp = SubResource( 2 )
 [node name="Missile" type="Area2D" groups=[
 "missile",
 ]]
+z_index = -5
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_horizontal_guides_": [  ],

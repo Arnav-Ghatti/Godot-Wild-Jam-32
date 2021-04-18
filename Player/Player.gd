@@ -37,10 +37,9 @@ func _go_to_mouse() -> void:
 
 func _on_MissileDetector_area_entered(area: Area2D) -> void:
 	if area.is_in_group("missile"):
-		$CollisionPolygon2D.disabled = true
-		$Sprite.set_texture(load("res://Player/player_damage.png"))
+		$PlayerNormal.hide()
 		Global.player_lives -= 1
 		$Cooldown.start()
 
 func _on_Cooldown_timeout() -> void:
-	$Sprite.set_texture(load("res://Player/player.png"))
+	$PlayerNormal.show()

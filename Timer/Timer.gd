@@ -5,6 +5,7 @@ var sec = 0
 var mins = 0
 
 signal next_wave
+signal game_over
 
 func _ready() -> void:
 	if Global.wave != 1:
@@ -31,8 +32,16 @@ func _process(delta: float) -> void:
 	set_text(str(mins) + ":" + str(sec) + ":" + str(ms))
 
 	if get_text() == Global.wave_end_text:
-		emit_signal("next_wave")
-		$ms.stop()
+		if Global.last_wave:
+			emit_signal("game_over")
+			$ms.stop()
+			yield(get_tree().create_timer(2.4), "timeout")
+			$ms.start()
+		else:
+			emit_signal("next_wave")
+			$ms.stop()
+			yield(get_tree().create_timer(2.4), "timeout")
+			$ms.start()
 
 func _on_ms_timeout() -> void:
 	ms += 1

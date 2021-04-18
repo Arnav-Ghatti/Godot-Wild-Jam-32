@@ -14,6 +14,12 @@ var wave_times = [
 	"4:0:0"
 ]
 
+var last_wave = false
+
+func _process(delta: float) -> void:
+	if wave == 7 and wave_index == 6:
+		last_wave = true
+
 var ms = 0
 var sec = 0
 var mins = 0
@@ -23,5 +29,7 @@ var player_lives = 3
 var player_name = ""
 
 func next_wave() -> void:
-	wave += 1
-	wave_index += 1
+	if not last_wave:
+		wave += 1
+		wave_index += 1
+		wave_end_text = wave_times[wave_index]
