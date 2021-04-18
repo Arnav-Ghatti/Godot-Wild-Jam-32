@@ -16,12 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Godot Game Jam 32"
-run/main_scene="res://MainMenu.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://SingleScenes/MainMenu.tscn"
 
 [autoload]
 
-Global="*res://Global.gd"
+Global="*res://SingleScenes/Global.gd"
+MusicController="*res://SingleScenes/MusicController.tscn"
 
 [display]
 

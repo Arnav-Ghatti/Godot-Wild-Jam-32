@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SpaceShip.ogg-03ad6c9d02203e98c1ac9f24a47a4b4d.oggstr"
+
+[deps]
+
+source_file="res://Audio/SpaceShip.ogg"
+dest_files=[ "res://.import/SpaceShip.ogg-03ad6c9d02203e98c1ac9f24a47a4b4d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

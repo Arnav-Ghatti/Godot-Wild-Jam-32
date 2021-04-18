@@ -14,4 +14,9 @@ The following are the tools used to make the game
 * The art and SFX were imported from Kenney.
 * The music was made in FL Studio.
 
+The main objectiove of the game is to survive 7 waves of deadly missiles.
+Once you have survived 7 waves, you will have beaten the game.
+The player will look and go towards the mouse.
+You will have 3 lives. After losing 1 life, you will gain +10 speed.
+
 **If You like the game then don't forget to comment on my Itch.io page. Thank you for playing my Game 😊**
